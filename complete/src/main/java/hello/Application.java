@@ -15,9 +15,11 @@ public class Application {
 	private static final Logger log = LoggerFactory.getLogger(Application.class);
 
 	public static void main(String args[]) {
-		SpringApplication.run(Application.class);
+		SpringApplication app = new SpringApplication(Application.class);
+		app.setWebEnvironment(false);
+		app.run();
 	}
-	
+
 	@Bean
 	public RestTemplate restTemplate(RestTemplateBuilder builder) {
 		return builder.build();
